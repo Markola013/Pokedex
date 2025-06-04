@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex Interativa</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Pokédex</h1>
+    <div class="search-bar-container">
+      <input type="text" id="searchInput" placeholder="Digite o nome ou número do Pokémon..." />
+      <button onclick="buscarPokemon()">Buscar</button>
+    </div>
+  </header>
+
+  <main id="pokemonContainer">
+    <p class="placeholder-text">Use a busca acima para encontrar seu Pokémon!</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pokédex Interativa. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
