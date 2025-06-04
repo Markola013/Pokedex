@@ -1,0 +1,262 @@
+/* Importa a fonte 'Press Start 2P' do Google Fonts para um estilo de videogame retrô */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Importa a fonte 'Roboto' para o corpo do texto, mais legível para detalhes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Variáveis CSS para cores e tamanhos - facilita a manutenção e padronização */
+:root {
+  --primary-red: #cc0000; /* Vermelho vibrante, cor principal da Pokédex */
+  --secondary-blue: #3b4cca; /* Azul escuro, para detalhes e fundo */
+  --accent-yellow: #ffde00; /* Amarelo brilhante, para botões e destaques */
+  --text-light: #f0f0f0;    /* Cor de texto clara para fundos escuros */
+  --text-dark: #333333;     /* Cor de texto escura para fundos claros */
+  --card-background: #ffffff; /* Fundo do cartão do Pokémon */
+  --shadow-color: rgba(0, 0, 0, 0.4); /* Cor da sombra para profundidade */
+  --border-radius-lg: 15px; /* Raio da borda maior */
+  --border-radius-sm: 8px;  /* Raio da borda menor */
+}
+
+/* Estilo geral do corpo da página */
+body {
+  font-family: 'Roboto', sans-serif; /* Usa Roboto para o texto principal */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, #001f3f 100%); /* Gradiente de azul escuro */
+  color: var(--text-light); /* Cor do texto padrão clara */
+  min-height: 100vh; /* Garante que o body ocupa a altura total da viewport */
+  display: flex; /* Para centralizar o conteúdo verticalmente */
+  flex-direction: column; /* Organiza o conteúdo em coluna */
+}
+
+/* Estilo do cabeçalho */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem; /* Mais padding para espaçamento */
+  background-color: var(--primary-red); /* Fundo vermelho vibrante */
+  box-shadow: 0 4px 10px var(--shadow-color); /* Sombra para profundidade */
+  border-bottom: 5px solid var(--accent-yellow); /* Borda amarela na parte inferior */
+}
+
+/* Título principal H1 */
+h1 {
+  font-family: 'Press Start 2P', cursive; /* Fonte retrô para o título */
+  color: var(--accent-yellow); /* Amarelo para o título */
+  margin-bottom: 1.5rem; /* Mais espaçamento abaixo do título */
+  text-shadow: 3px 3px 0px var(--secondary-blue); /* Efeito de sombra para dar volume */
+  font-size: 2.8em; /* Tamanho maior para o título */
+  letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+/* Container da barra de busca */
+.search-bar-container {
+  display: flex; /* Permite que o input e o botão fiquem na mesma linha */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 1rem; /* Espaçamento entre os itens */
+}
+
+/* Campo de busca */
+input#searchInput {
+  padding: 0.8rem 1.2rem; /* Aumenta o padding */
+  font-size: 1.1rem; /* Aumenta o tamanho da fonte */
+  border-radius: var(--border-radius-sm); /* Borda arredondada */
+  border: 2px solid var(--accent-yellow); /* Borda amarela */
+  background-color: var(--card-background); /* Fundo branco */
+  color: var(--text-dark); /* Texto escuro */
+  outline: none; /* Remove o contorno padrão ao focar */
+  width: 70%; /* Largura do campo */
+  max-width: 450px; /* Largura máxima */
+  transition: all 0.3s ease; /* Transição suave para efeitos */
+}
+
+/* Estilo do campo de busca ao focar */
+input#searchInput:focus {
+  border-color: var(--primary-red); /* Borda vermelha ao focar */
+  box-shadow: 0 0 0 4px rgba(var(--primary-red), 0.3); /* Sombra de foco suave */
+}
+
+/* Botão de busca */
+button {
+  padding: 0.8rem 1.5rem; /* Aumenta o padding */
+  font-size: 1.1rem; /* Aumenta o tamanho da fonte */
+  margin-left: 0; /* Remove a margem extra, já que o gap do container já lida com isso */
+  border: none;
+  border-radius: var(--border-radius-sm); /* Borda arredondada */
+  background-color: var(--accent-yellow); /* Fundo amarelo */
+  color: var(--text-dark); /* Texto escuro */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+  font-weight: bold; /* Texto em negrito */
+  letter-spacing: 0.5px; /* Pequeno espaçamento entre letras */
+  text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+/* Efeito hover no botão */
+button:hover {
+  background-color: #e6c200; /* Um amarelo um pouco mais escuro no hover */
+  transform: translateY(-2px); /* Move o botão ligeiramente para cima */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para simular "elevação" */
+}
+
+/* Container principal de resultados do Pokémon */
+main#pokemonContainer {
+  flex-grow: 1; /* Permite que o main ocupe o espaço restante */
+  display: flex;
+  justify-content: center; /* Centraliza o card horizontalmente */
+  align-items: center; /* Centraliza o card verticalmente */
+  padding: 2rem;
+}
+
+/* Texto de placeholder quando nenhum Pokémon é buscado */
+.placeholder-text {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+/* Cartão com dados do Pokémon */
+.card {
+  background-color: var(--card-background); /* Fundo branco */
+  border-radius: var(--border-radius-lg); /* Bordas bem arredondadas */
+  box-shadow: 0 8px 20px var(--shadow-color); /* Sombra mais pronunciada para destaque */
+  padding: 2rem; /* Mais padding interno */
+  margin: 1rem;
+  text-align: center;
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 400px; /* Largura máxima para o cartão */
+  color: var(--text-dark); /* Texto escuro dentro do cartão */
+  display: flex; /* Permite controle flexível dos itens internos */
+  flex-direction: column; /* Itens empilhados verticalmente */
+  align-items: center; /* Centraliza itens horizontalmente dentro do card */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição com curva cúbica para suavidade */
+  position: relative; /* Para posicionar elementos internos, se necessário */
+  overflow: hidden; /* Garante que nada transborde do card */
+}
+
+/* Efeito hover no cartão */
+.card:hover {
+  transform: translateY(-10px); /* Move o cartão mais para cima no hover */
+}
+
+/* Título do nome do Pokémon no cartão */
+.card h2 {
+  font-family: 'Press Start 2P', cursive; /* Fonte retrô para o nome do Pokémon */
+  color: var(--primary-red); /* Cor vermelha para o nome */
+  margin-top: 0; /* Remove margem superior padrão */
+  margin-bottom: 1rem; /* Espaçamento abaixo do nome */
+  font-size: 1.8em; /* Tamanho maior para o nome */
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1); /* Sombra suave no texto */
+  letter-spacing: 1px;
+}
+
+/* Imagem do Pokémon */
+.card img {
+  width: 150px; /* Aumenta o tamanho da imagem */
+  height: 150px;
+  object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
+  background-color: #e8e8e8; /* Fundo suave para a imagem */
+  border-radius: 50%; /* Imagem circular */
+  padding: 10px; /* Padding interno na imagem */
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1); /* Sombra interna para profundidade */
+  margin-bottom: 1.5rem; /* Espaçamento abaixo da imagem */
+  border: 3px solid var(--accent-yellow); /* Borda amarela na imagem */
+}
+
+/* Parágrafos de informação no cartão */
+.card p {
+  margin: 0.5rem 0; /* Espaçamento vertical para os parágrafos */
+  font-size: 1.1em; /* Tamanho da fonte levemente maior */
+  color: var(--text-dark); /* Cor do texto padrão */
+}
+
+/* Texto em negrito dentro do cartão */
+.card p strong {
+  color: var(--secondary-blue); /* Cor azul para o texto em negrito (rótulo) */
+}
+
+/* Container para os tipos do Pokémon */
+div.types {
+  margin-top: 1.5rem; /* Mais espaçamento acima dos tipos */
+  display: flex; /* Permite que os tipos fiquem na mesma linha */
+  gap: 0.8rem; /* Espaçamento entre os tipos */
+  flex-wrap: wrap; /* Quebra para a próxima linha se não houver espaço */
+  justify-content: center; /* Centraliza os tipos */
+}
+
+/* Estilo de cada 'span' de tipo individual */
+span.type {
+  display: inline-block;
+  padding: 0.6rem 1.2rem; /* Mais padding */
+  border-radius: var(--border-radius-lg); /* Bordas bem arredondadas para os tipos */
+  color: white; /* Texto branco nos tipos */
+  font-weight: bold;
+  font-size: 0.9em; /* Tamanho da fonte do tipo */
+  text-transform: capitalize; /* Primeira letra maiúscula */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra suave para os tipos */
+  transition: transform 0.2s ease; /* Transição para o efeito hover */
+}
+
+/* Efeito hover nos tipos */
+span.type:hover {
+  transform: translateY(-3px); /* Move o tipo ligeiramente para cima no hover */
+}
+
+/* Rodapé da página */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #1f2a38; /* Cor de fundo escura */
+  color: rgba(255, 255, 255, 0.7); /* Texto claro e semitransparente */
+  margin-top: auto; /* Empurra o rodapé para a parte inferior */
+  font-size: 0.9em;
+  border-top: 3px solid var(--accent-yellow); /* Borda amarela na parte superior */
+}
+
+/* Estilo para mensagens de erro ou informações */
+p {
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--text-light); /* Cor do texto padrão */
+}
+
+
+/* Responsividade para telas menores (smartphones) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em; /* Reduz o tamanho do título em telas menores */
+  }
+
+  .search-bar-container {
+    flex-direction: column; /* Empilha o input e o botão verticalmente */
+    align-items: center; /* Centraliza os itens empilhados */
+    gap: 0.8rem; /* Reduz o espaçamento entre eles */
+  }
+
+  input#searchInput {
+    width: 90%; /* Aumenta a largura do input em telas menores */
+  }
+
+  button {
+    width: 90%; /* Aumenta a largura do botão em telas menores */
+    margin-left: 0; /* Garante que não há margem lateral */
+  }
+
+  main {
+    padding: 1rem; /* Reduz o padding do main */
+  }
+
+  .card {
+    padding: 1.5rem; /* Reduz o padding do card */
+    max-width: 95%; /* Garante que o card não seja muito largo */
+  }
+
+  .card h2 {
+    font-size: 1.5em; /* Reduz o tamanho do nome do Pokémon */
+  }
+
+  .card img {
+    width: 100px; /* Reduz o tamanho da imagem do Pokémon */
+    height: 100px;
+  }
+}
