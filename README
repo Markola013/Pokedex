@@ -1,0 +1,51 @@
+# Pokédex Interativa 🐉
+
+Bem-vindo à Pokédex Interativa! Este projeto é uma aplicação web que permite aos usuários buscar informações sobre Pokémon, utilizando a PokeAPI como fonte de dados.
+
+# 🌟 Descrição
+
+A Pokédex Interativa oferece uma interface simples e amigável para explorar o vasto mundo dos Pokémon. Os usuários podem pesquisar por nome ou número da Pokédex Nacional para visualizar detalhes como nome, imagem (sprite), ID e tipos do Pokémon. Os tipos são exibidos com cores distintas para fácil identificação.
+
+# ✨ Funcionalidades
+
+* **Busca de Pokémon:** Pesquise Pokémon pelo nome completo ou pelo seu número na Pokédex Nacional.
+* **Exibição de Detalhes:**
+    * Nome do Pokémon (capitalizado).
+    * Imagem (sprite frontal padrão).
+    * ID Nacional (formatado com três dígitos, ex: #001).
+    * Tipos do Pokémon, cada um com uma cor específica para identificação visual.
+* **Interface Responsiva:** O design se adapta a diferentes tamanhos de tela, proporcionando uma boa experiência em desktops e dispositivos móveis.
+* **Feedback ao Usuário:** Mensagens claras de carregamento, erro (como "Pokémon não encontrado" ou "Campo de busca vazio") e instruções iniciais.
+* **Mecanismos de Busca:** A busca pode ser acionada tanto clicando no botão "Buscar" quanto pressionando a tecla "Enter" no campo de pesquisa.
+* **Estilo Retrô:** Utiliza a fonte "Press Start 2P" para o título principal, remetendo ao estilo de videojogos clássicos.
+
+# 🛠️ Tecnologias Utilizadas
+
+* **HTML5:** Estrutura base da aplicação.
+* **CSS3:** Estilização da interface, utilizando:
+    * Variáveis CSS para um tema consistente.
+    * Flexbox para layout.
+    * Media Queries para responsividade.
+* **JavaScript (ES6+):**
+    * Manipulação dinâmica do DOM.
+    * Consumo de API externa com `async/await` e `fetch`.
+    * Lógica de busca e exibição dos dados.
+* **PokeAPI:** API RESTful utilizada como fonte de dados para todas as informações dos Pokémon (`https://pokeapi.co/api/v2/pokemon/`).
+* **Google Fonts:** Para as fontes 'Press Start 2P' e 'Roboto'.
+
+# 🚀 Como Executar
+
+Para executar este projeto localmente, siga os passos abaixo:
+
+1.  Clone este repositório (ou baixe os arquivos `index.html`, `style.css`, e `script.js`).
+2.  Navegue até a pasta onde os arquivos foram salvos.
+3.  Abra o arquivo `index.html` em seu navegador web preferido (Ex: Google Chrome, Firefox, Edge).
+
+Não são necessárias instalações de dependências ou processos de build complexos.
+
+# 📖 Como Usar
+
+1.  Abra o arquivo `index.html` no navegador.
+2.  Na barra de busca, digite o nome de um Pokémon (ex: "pikachu", "charizard") ou seu número na Pokédex Nacional (ex: "25", "6").
+3.  Clique no botão "Buscar" ou pressione a tecla Enter.
+4.  As informações do Pokémon pesquisado serão exibidas no card abaixo da barra de busca.
